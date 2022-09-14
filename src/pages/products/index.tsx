@@ -3,7 +3,7 @@ import { fetcher, QueryKeys } from '../../queryClient'
 import { Product } from '../../types'
 import ProductItem from '../../components/product/item'
 
-const Products = () => {
+const ProductList = () => {
   const { data } = useQuery<Product[]>(QueryKeys.PRODUCTS, () =>
     fetcher({
       method: 'GET',
@@ -13,6 +13,7 @@ const Products = () => {
 
   return (
     <div>
+      <h2>상품목록</h2>
       <ul className="products">
         {data?.map((product) => (
           <ProductItem {...product} key={product.id} />
@@ -22,4 +23,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default ProductList
